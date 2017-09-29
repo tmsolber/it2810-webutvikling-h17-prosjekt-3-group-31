@@ -8,3 +8,6 @@ npm start
 
 #### If error: "react-scripts is not recognized as an internal or external command"
 npm install
+
+#### Semantic UI
+https://react.semantic-ui.com/usage
