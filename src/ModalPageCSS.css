@@ -1,0 +1,99 @@
+.modal {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;
+    background-color: #fff;
+    max-width: 500px;
+    min-height: 600px;
+    margin: 0 auto;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    padding: 50px;
+}
+
+.form {
+    display: block;
+    padding: 0.01em 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form .todo-input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 12px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+
+.form .todo-input::-webkit-input-placeholder {
+     color: black;
+     opacity: 0.2;
+}
+
+.date-and-time {
+    padding-top: 16px!important;
+    padding-bottom: 16px!important;
+    padding: 0.01em 16px;
+    box-sizing: inherit;
+}
+
+.submit-container{
+    color: #000!important;
+    background-color: #f1f1f1!important;
+    padding-top: 16px!important;
+    padding-bottom: 16px!important;
+    border-top: 1px solid #ccc!important;
+    padding: 0.01em 16px;
+    box-sizing: inherit;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.close {
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;  
+    margin-right: 5px;
+}
