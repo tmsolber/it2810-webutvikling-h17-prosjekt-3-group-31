@@ -55,7 +55,7 @@ class App extends Component {
                     {listItems}
                 </div>
                 <div className="App">
-                    <img src={require('./pluss.png')} onClick={this.handleModal} onMouseOver={this.handleHover}
+                    <img src={require('./pluss.png')} alt="ocean" onClick={this.handleModal} onMouseOver={this.handleHover}
                         onMouseLeave={this.handleLeave} style={imgStyle}/>
                     <ModalPage show={this.state.showModal} onClose={this.handleModal} onUpdate={this.onUpdate}/>
                 </div>

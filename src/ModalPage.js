@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import MainFocusText from './MainFocusText.js';
+import DateComponent from './DateComponent.js'
 import {Button} from 'semantic-ui-react';
 import { Checkbox } from 'semantic-ui-react';
 import './ModalPageCSS.css';
@@ -10,7 +11,8 @@ export class ModalPage extends Component {
         super(props);
         this.state = {
             checked: false,
-            opacity: 0.1
+            opacity: 0.1,
+            disabled: true
         }
     }
     
@@ -23,10 +25,9 @@ export class ModalPage extends Component {
     handleChecked = () => {
         this.setState(prevState => ({
             checked: !prevState.checked,
-            opacity: this.state.opacity == 0.1 ? 1 : 0.1
+            opacity: this.state.opacity === 0.1 ? 1 : 0.1,
+            disabled: !prevState.disabled
         }));
-
-        
     };
         
     handlePropagation = (e) => {
@@ -51,7 +52,7 @@ export class ModalPage extends Component {
                         <Checkbox className="check-notification" label="Add notification" onClick={this.handleChecked}/>
                     </div>
                     <div className="date-and-time" style={{opacity: this.state.opacity}}>
-                        
+                        <DateComponent disable={this.state.disabled}/>  
                     </div>
                     <div className="submit-container">
                         <Button primary onClick={this.handleSubmit}>Submit</Button>

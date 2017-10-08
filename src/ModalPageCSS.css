@@ -1,9 +1,9 @@
 .modal {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s;
-    background-color: #fff;
+    background-color: rgb(229, 234, 235);
     max-width: 500px;
-    min-height: 600px;
+    max-height: 600px;
     margin: 0 auto;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -40,11 +40,11 @@
 
 .form .todo-input {
     outline: 0;
-    background: #f2f2f2;
+    background: #fafafa;
     width: 100%;
     border: 0;
     margin: 0 0 15px;
-    padding: 12px;
+    padding: 10px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -60,8 +60,8 @@
 }
 
 .date-and-time {
-    padding-top: 16px!important;
-    padding-bottom: 16px!important;
+    padding-top: 10px!important;
+    padding-bottom: 250px!important;
     padding: 0.01em 16px;
     box-sizing: inherit;
 }
