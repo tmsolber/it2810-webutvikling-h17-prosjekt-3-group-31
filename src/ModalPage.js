@@ -15,9 +15,7 @@ export class ModalPage extends Component {
             e.preventDefault();
             this.props.onUpdate(this.refs.input.value);
             this.refs.input.value = "";
-        }
-        if (this.refs.input.value) {
-            return localStorage.setItem('todo', JSON.stringify(this.props.values));
+            localStorage.setItem('todo', JSON.stringify(this.props.values));
         }
     };
     /*
