@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './ModalPageCSS.css';
 
 export class TestModal extends Component {
+
     handlePropagation = (e) => {
         e.stopPropagation();
     };

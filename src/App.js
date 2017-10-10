@@ -9,9 +9,20 @@ class App extends Component {
         this.state = {
             showModal: false,
             scaling: 'scale(1)',
-            value: []
+            value: (localStorage.getItem('todo') && JSON.parse(localStorage.getItem('todo')))||[],
+            time: new Date()
         };
     }
+
+    componentDidMount = () => {
+        this.update = setInterval(() => {
+            this.setState({ time: new Date() });
+        }, 1000);
+    };
+
+    componentWillMount = () => {
+        clearInterval(this.update)
+    };
 
     handleModal = () => {
         this.setState(prevState => ({
@@ -32,10 +43,14 @@ class App extends Component {
     };
 
     onUpdate = (val) => {
-        this.state.value.push(val)
+        this.state.value.push(val);
+        this.setState({
+            value: this.state.value
+        });
     };
 
     render() {
+        const {time} = this.state;
         const imgStyle = {
             width: 30,
             height: 30,
@@ -44,7 +59,7 @@ class App extends Component {
             marginTop: 15,
             transform: this.state.scaling
         };
-        
+
         const listItems = this.state.value.map((v) =>
             <div>{v}</div>
         );
@@ -57,7 +72,13 @@ class App extends Component {
                 <div className="App">
                     <img src={require('./pluss.png')} alt="ocean" onClick={this.handleModal} onMouseOver={this.handleHover}
                         onMouseLeave={this.handleLeave} style={imgStyle}/>
-                    <ModalPage show={this.state.showModal} onClose={this.handleModal} onUpdate={this.onUpdate}/>
+                    <div className="clock" >
+                        <h2 style={{color: 'white', position: 'fixed', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 70}}>
+                            {/* print the string prettily */}
+                            {time.toLocaleTimeString()}
+                        </h2>
+                    </div>
+                    <ModalPage show={this.state.showModal} onClose={this.handleModal} onUpdate={this.onUpdate} values={this.state.value}/>
                 </div>
             </div>
         );
