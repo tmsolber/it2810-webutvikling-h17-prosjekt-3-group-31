@@ -16,17 +16,8 @@ export class ModalPage extends Component {
             this.props.onUpdate(this.refs.input.value);
             this.refs.input.value = "";
         }
-        if (this.refs.input.value) {
-            return localStorage.setItem('todo', JSON.stringify(this.props.values));
-        }
+        localStorage.setItem('todo', JSON.stringify(this.props.values));
     };
-    /*
-    store = (value, data) => {
-
-        let store = localStorage.getItem(value);
-        return (store && JSON.parse(store)) || [];
-    };
-    */
 
     handlePropagation = (e) => {
         e.stopPropagation();
@@ -45,8 +36,8 @@ export class ModalPage extends Component {
                     </button>
                     <MainFocusText/>
                     <div className="form">
-                        <input type="text" maxLength={50} ref="input" placeholder="ToDo's..."
-                            onFocus={(e) => e.target.placeholder=""} onBlur={(e) => e.target.placeholder="ToDo's..."} onKeyDown={this.handleSubmit} className="todo-input" />
+                        <input type="text" className="todo-input"  maxLength={50} ref="input" placeholder="ToDo's..."
+                            onFocus={(e) => e.target.placeholder=""} onBlur={(e) => e.target.placeholder="ToDo's..."} onKeyDown={this.handleSubmit}/>
                     </div>
                 </div>
             </div>

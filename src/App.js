@@ -2,15 +2,18 @@
 import React, { Component } from 'react';
 import ModalPage from './ModalPage.js';
 import './App.css';
+import Documentation from './Documentation.js';
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
             showModal: false,
-            scaling: 'scale(1)',
+            scalingPlus: 'scale(1)',
+            scalingInfo: 'scale(1)',
             value: (localStorage.getItem('todo') && JSON.parse(localStorage.getItem('todo')))||[],
-            time: new Date()
+            time: new Date(),
+            showDoc: false
         };
     }
 
@@ -30,17 +33,37 @@ class App extends Component {
         }));
     };
 
+    handleDocumentation = () => {
+        this.setState(prevState => ({
+            showDoc: !prevState.showDoc,
+        }));
+    };
+
     handleHover = () => {
         this.setState({
-            scaling: 'scale(1.1)'
+            scalingPlus: 'scale(1.1)'
         });
     };
 
     handleLeave = () => {
         this.setState({
-            scaling: 'scale(1)'
+            scalingPlus: 'scale(1)'
         })
     };
+
+    handleHoverInfo = () => {
+        this.setState({
+            scalingInfo: 'scale(1.1)'
+        });
+    };
+
+    handleLeaveInfo = () => {
+        this.setState({
+            scalingInfo: 'scale(1)'
+        })
+    };
+
+
 
     onUpdate = (val) => {
         this.state.value.push(val);
@@ -57,7 +80,19 @@ class App extends Component {
             cursor: 'pointer',
             marginLeft: 15,
             marginTop: 15,
-            transform: this.state.scaling
+            transform: this.state.scalingPlus
+        };
+
+        const infoStyle = {
+            width: 30,
+            height: 30,
+            top: 0,
+            right: 0,
+            cursor: 'pointer',
+            position: 'absolute',
+            marginTop: -35,
+            marginRight: 10,
+            transform: this.state.scalingInfo
         };
 
         const listItems = this.state.value.map((v) =>
@@ -70,15 +105,19 @@ class App extends Component {
                     {listItems}
                 </div>
                 <div className="App">
-                    <img src={require('./pluss.png')} alt="ocean" onClick={this.handleModal} onMouseOver={this.handleHover}
+                    <img src={require('./pluss.png')} alt="pluss-btn" onClick={this.handleModal} onMouseOver={this.handleHover}
                         onMouseLeave={this.handleLeave} style={imgStyle}/>
-                    <div className="clock" >
-                        <h2 style={{color: 'white', position: 'fixed', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 70}}>
-                            {/* print the string prettily */}
+                    <div className="clock">
+                        <h2>
                             {time.toLocaleTimeString()}
                         </h2>
                     </div>
+                    <div className="info-button">
+                        <img src={require('./infobtn.png')} alt="info-btn" onClick={this.handleDocumentation} onMouseOver={this.handleHoverInfo}
+                             onMouseLeave={this.handleLeaveInfo} style={infoStyle}/>
+                    </div>
                     <ModalPage show={this.state.showModal} onClose={this.handleModal} onUpdate={this.onUpdate} values={this.state.value}/>
+                    <Documentation showD={this.state.showDoc} onClose={this.handleDocumentation}/>
                 </div>
             </div>
         );

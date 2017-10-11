@@ -6,3 +6,15 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+.clock h2 {
+    color: white;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+.info-button {
+    position: relative;
+}
