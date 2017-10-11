@@ -4,9 +4,6 @@ import './ModalPageCSS.css';
 import DocumentationText from './DocumentationText.js';
 
 export class Documentation extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     handlePropagation = (e) => {
         e.stopPropagation();

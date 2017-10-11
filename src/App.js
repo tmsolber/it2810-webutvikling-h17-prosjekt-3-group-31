@@ -14,7 +14,7 @@ class App extends Component {
             scalingInfo: 'scale(1)',
             value: (localStorage.getItem('todo') && JSON.parse(localStorage.getItem('todo')))||[],
             time: new Date(),
-            check: false
+            check: false,
             showDoc: false
         };
     }
@@ -107,7 +107,7 @@ class App extends Component {
         const {time} = this.state;
 
         const imgStyle = {
-            transform: this.state.scaling
+            transform: this.state.scalingPlus
         };
 
         const className = this.state.check ? 'todoTextTrue' : 'todoTextFalse';
@@ -133,6 +133,8 @@ class App extends Component {
             <div>
                 <img src={require('./pluss.png')} alt="ocean" className={'plus'} onClick={this.handleModal}
                      onMouseOver={this.handleHover} onMouseLeave={this.handleLeave} style={imgStyle}/>
+                <img src={require('./infobtn.png')} alt="info-btn" className={'info'} onClick={this.handleDocumentation} onMouseOver={this.handleHoverInfo}
+                     onMouseLeave={this.handleLeaveInfo} style={imgStyle}/>
                 <Grid className="App">
                     <Grid.Column width={5} textAlign='centered'>
                         <Grid.Row>
@@ -154,9 +156,8 @@ class App extends Component {
                         </Grid.Row>
                     </Grid.Column>
                 </Grid>
-                        <img src={require('./infobtn.png')} alt="info-btn" onClick={this.handleDocumentation} onMouseOver={this.handleHoverInfo}
-                             onMouseLeave={this.handleLeaveInfo} style={infoStyle}/>
-                    <Documentation showD={this.state.showDoc} onClose={this.handleDocumentation}/>
+
+                <Documentation showD={this.state.showDoc} onClose={this.handleDocumentation}/>
             </div>
         );
     }
