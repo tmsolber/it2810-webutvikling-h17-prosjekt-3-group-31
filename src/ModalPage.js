@@ -15,8 +15,8 @@ export class ModalPage extends Component {
             e.preventDefault();
             this.props.onUpdate(this.refs.input.value);
             this.refs.input.value = "";
-            localStorage.setItem('todo', JSON.stringify(this.props.values));
         }
+        localStorage.setItem('todo', JSON.stringify(this.props.values));
     };
 
     handlePropagation = (e) => {

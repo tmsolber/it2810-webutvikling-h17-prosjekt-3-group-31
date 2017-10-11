@@ -3,16 +3,19 @@ import React, { Component } from 'react';
 import ModalPage from './ModalPage.js';
 import {Segment, Checkbox, Grid, Icon} from 'semantic-ui-react'
 import './App.css';
+import Documentation from './Documentation.js';
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
             showModal: false,
-            scaling: 'scale(1)',
+            scalingPlus: 'scale(1)',
+            scalingInfo: 'scale(1)',
             value: (localStorage.getItem('todo') && JSON.parse(localStorage.getItem('todo')))||[],
             time: new Date(),
             check: false
+            showDoc: false
         };
     }
 
@@ -35,17 +38,37 @@ class App extends Component {
         }));
     };
 
+    handleDocumentation = () => {
+        this.setState(prevState => ({
+            showDoc: !prevState.showDoc,
+        }));
+    };
+
     handleHover = () => {
         this.setState({
-            scaling: 'scale(1.1)'
+            scalingPlus: 'scale(1.1)'
         });
     };
 
     handleLeave = () => {
         this.setState({
-            scaling: 'scale(1)'
+            scalingPlus: 'scale(1)'
         })
     };
+
+    handleHoverInfo = () => {
+        this.setState({
+            scalingInfo: 'scale(1.1)'
+        });
+    };
+
+    handleLeaveInfo = () => {
+        this.setState({
+            scalingInfo: 'scale(1)'
+        })
+    };
+
+
 
     onUpdate = (val) => {
         this.state.value.push({
@@ -131,6 +154,9 @@ class App extends Component {
                         </Grid.Row>
                     </Grid.Column>
                 </Grid>
+                        <img src={require('./infobtn.png')} alt="info-btn" onClick={this.handleDocumentation} onMouseOver={this.handleHoverInfo}
+                             onMouseLeave={this.handleLeaveInfo} style={infoStyle}/>
+                    <Documentation showD={this.state.showDoc} onClose={this.handleDocumentation}/>
             </div>
         );
     }
