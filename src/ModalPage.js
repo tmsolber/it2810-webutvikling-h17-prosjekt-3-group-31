@@ -19,6 +19,7 @@ export class ModalPage extends Component {
         localStorage.setItem('todo', JSON.stringify(this.props.values));
     };
 
+
     handlePropagation = (e) => {
         e.stopPropagation();
     };
