@@ -1,7 +1,9 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import ModalPage from './ModalPage.js';
+import {Segment, Checkbox, Grid, Icon, Button} from 'semantic-ui-react'
 import './App.css';
+import BodyImages from 'react-body-images';
 
 class App extends Component {
     constructor() {
@@ -51,36 +53,54 @@ class App extends Component {
 
     render() {
         const {time} = this.state;
+
         const imgStyle = {
-            width: 30,
-            height: 30,
-            cursor: 'pointer',
-            marginLeft: 15,
-            marginTop: 15,
             transform: this.state.scaling
         };
 
+        const image = ['./background2.jpeg'];
+
         const listItems = this.state.value.map((v) =>
-            <div>{v}</div>
+            <Segment className={'TodoItem'}>
+                <Grid>
+                    <Grid.Column>
+                        <Checkbox className={'checkbox'}/>
+                    </Grid.Column>
+                    <Grid.Column stretched>
+                        <li>{v}</li>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Icon name='remove' color={'red'} size={'large'}/>
+                    </Grid.Column>
+                </Grid>
+            </Segment>
         );
 
         return (
-            <div className="background-image">
-                <div className="ToDos" style={{position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',  backgroundColor: '#fff'}}>
-                    {listItems}
+            <BodyImages className={"background-image"} bgImageArray={this.state.images}>
+                <div>
+                    <img src={require('./pluss.png')} alt="ocean" className={'plus'} onClick={this.handleModal} onMouseOver={this.handleHover}
+                         onMouseLeave={this.handleLeave} style={imgStyle}/>
+                    <Grid className="App" divided>
+                        <Grid.Column width={5} textAlign={'centered'} verticalAlign={'middle'}>
+                            <Grid.Row centered>
+                                <div className="clock" >
+                                    <h2>
+                                        {/* print the string prettily */}
+                                        {time.toLocaleTimeString()}
+                                    </h2>
+                                </div>
+                            </Grid.Row>
+                            <Grid.Row>
+                                <Segment.Group className="ToDos" >
+                                {listItems}
+                                </Segment.Group>
+                                <ModalPage show={this.state.showModal} onClose={this.handleModal} onUpdate={this.onUpdate} values={this.state.value}/>
+                            </Grid.Row>
+                        </Grid.Column>
+                    </Grid>
                 </div>
-                <div className="App">
-                    <img src={require('./pluss.png')} alt="ocean" onClick={this.handleModal} onMouseOver={this.handleHover}
-                        onMouseLeave={this.handleLeave} style={imgStyle}/>
-                    <div className="clock" >
-                        <h2 style={{color: 'white', position: 'fixed', left: '50%', transform: 'translate(-50%, -50%)', fontSize: 70}}>
-                            {/* print the string prettily */}
-                            {time.toLocaleTimeString()}
-                        </h2>
-                    </div>
-                    <ModalPage show={this.state.showModal} onClose={this.handleModal} onUpdate={this.onUpdate} values={this.state.value}/>
-                </div>
-            </div>
+            </BodyImages>
         );
     }
 }
