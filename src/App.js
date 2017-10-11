@@ -11,7 +11,8 @@ class App extends Component {
             showModal: false,
             scaling: 'scale(1)',
             value: (localStorage.getItem('todo') && JSON.parse(localStorage.getItem('todo')))||[],
-            time: new Date()
+            time: new Date(),
+            check: false
         };
     }
 
@@ -57,15 +58,27 @@ class App extends Component {
         console.log(this.state.value)
     };
 
-    // handleDelete = (item) => {
-    //     var todos = this.state.value.filter(function(candidate){
-    //         return (candidate !== item);
-    //     });
-    //
-    //     this.setState({
-    //         value: todos
-    //     });
-    // };
+    handleDelete = (key) => {
+        const todos = this.state.value.filter(function(val){
+            return (val.key !== key);
+        });
+
+        this.setState({
+            value: todos
+        });
+    };
+
+    handleCheck = () => {
+        if(this.state.check === false){
+            this.setState({
+                check: true
+            });
+        }else{
+            this.setState({
+                check: false
+            });
+        }
+    };
 
     render() {
         const {time} = this.state;
@@ -74,18 +87,20 @@ class App extends Component {
             transform: this.state.scaling
         };
 
+        const className = this.state.check ? 'todoTextTrue' : 'todoTextFalse';
+
         const listItems = this.state.value.map((v) =>
             <Segment className={'TodoItem'} key={v.key}>
                 <Grid columns={'equal'}>
                     <Grid.Column width={1}>
-                        <Checkbox className={'checkbox'}/>
+                        <Checkbox className={'checkbox'} onClick={(e)=>this.handleCheck()}/>
                     </Grid.Column>
-                    <Grid.Column stretched>
+                    <Grid.Column stretched className={className} name={'todoText'}>
                         {v.text}
                     </Grid.Column>
                     <Grid.Column width={2}>
                         <Icon name='remove' className={'remove'} color={'red'} size={'large'} onMouseOver={this.handleHover}
-                              onMouseLeave={this.handleLeave} style={imgStyle}/>
+                              onMouseLeave={this.handleLeave} style={imgStyle} onClick={(e) => this.handleDelete(v.key)}/>
                     </Grid.Column>
                 </Grid>
             </Segment>
@@ -104,6 +119,9 @@ class App extends Component {
                                     {time.toLocaleTimeString()}
                                 </h2>
                             </div>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <h1 className={'header'}>Todo</h1>
                         </Grid.Row>
                         <Grid.Row>
                             <Segment.Group className="ToDos" >
