@@ -1,9 +1,9 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import ModalPage from './ModalPage.js';
+import ModalPage from './components/ModalPage.js';
 import {Segment, Checkbox, Grid, Icon} from 'semantic-ui-react'
 import './App.css';
-import Documentation from './Documentation.js';
+import Documentation from './components/Documentation.js';
 
 class App extends Component {
     constructor() {
@@ -12,6 +12,7 @@ class App extends Component {
             showModal: false,
             scalingPlus: 'scale(1)',
             scalingInfo: 'scale(1)',
+            scalingRemove: 'scale(1)',
             value: (localStorage.getItem('todo') && JSON.parse(localStorage.getItem('todo')))||[],
             time: new Date(),
             check: false,
@@ -68,7 +69,17 @@ class App extends Component {
         })
     };
 
+    handleHoverRemove = () => {
+        this.setState({
+            scalingRemove: 'scale(1.1)'
+        });
+    }
 
+    handleLeaveRemove = () => {
+        this.setState({
+            scalingRemove: 'scale(1)'
+        })
+    };
 
     onUpdate = (val) => {
         this.state.value.push({
@@ -110,6 +121,14 @@ class App extends Component {
             transform: this.state.scalingPlus
         };
 
+        const infoStyle = {
+            transform: this.state.scalingInfo
+        };
+
+        const removeStyle = {
+            transform: this.state.scalingRemove
+        }
+
         const className = this.state.check ? 'todoTextTrue' : 'todoTextFalse';
 
         const listItems = this.state.value.map((v) =>
@@ -122,8 +141,8 @@ class App extends Component {
                         {v.text}
                     </Grid.Column>
                     <Grid.Column width={2}>
-                        <Icon name='remove' className={'remove'} color={'red'} size={'large'} onMouseOver={this.handleHover}
-                              onMouseLeave={this.handleLeave} style={imgStyle} onClick={(e) => this.handleDelete(v.key)}/>
+                        <Icon name='remove' className={'remove'} color={'red'} size={'large'} onMouseOver={this.handleHoverRemove}
+                              onMouseLeave={this.handleLeaveRemove} style={removeStyle} onClick={(e) => this.handleDelete(v.key)}/>
                     </Grid.Column>
                 </Grid>
             </Segment>
@@ -131,10 +150,10 @@ class App extends Component {
 
         return (
             <div>
-                <img src={require('./pluss.png')} alt="ocean" className={'plus'} onClick={this.handleModal}
+                <img src={require('./components/pluss.png')} alt="ocean" className={'plus'} onClick={this.handleModal}
                      onMouseOver={this.handleHover} onMouseLeave={this.handleLeave} style={imgStyle}/>
-                <img src={require('./infobtn.png')} alt="info-btn" className={'info'} onClick={this.handleDocumentation} onMouseOver={this.handleHoverInfo}
-                     onMouseLeave={this.handleLeaveInfo} style={imgStyle}/>
+                <img src={require('./components/infobtn.png')} alt="info-btn" className={'info'} onClick={this.handleDocumentation} onMouseOver={this.handleHoverInfo}
+                     onMouseLeave={this.handleLeaveInfo} style={infoStyle}/>
                 <Grid className="App">
                     <Grid.Column width={5} textAlign='centered'>
                         <Grid.Row>
