@@ -10,6 +10,9 @@
     text-align: center;
 }
 
+.remove{
+    cursor: pointer;
+}
 .plus{
     width: 30px;
     height: 30px;
