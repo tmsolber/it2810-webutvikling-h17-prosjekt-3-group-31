@@ -6,9 +6,9 @@ import './ModalPageCSS.css';
 const ENTER_KEY = 13;
 
 export class ModalPage extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     
     handleSubmit = (e) => {
         if (e.which === ENTER_KEY) {
@@ -18,13 +18,6 @@ export class ModalPage extends Component {
             localStorage.setItem('todo', JSON.stringify(this.props.values));
         }
     };
-    /*
-    store = (value, data) => {
-
-        let store = localStorage.getItem(value);
-        return (store && JSON.parse(store)) || [];
-    };
-    */
 
     handlePropagation = (e) => {
         e.stopPropagation();
@@ -44,7 +37,8 @@ export class ModalPage extends Component {
                     <MainFocusText/>
                     <div className="form">
                         <input type="text" maxLength={50} ref="input" placeholder="ToDo's..."
-                            onFocus={(e) => e.target.placeholder=""} onBlur={(e) => e.target.placeholder="ToDo's..."} onKeyDown={this.handleSubmit} className="todo-input" />
+                            onFocus={(e) => e.target.placeholder=""} onBlur={(e) => e.target.placeholder="ToDo's..."}
+                               onKeyDown={this.handleSubmit} className="todo-input" />
                     </div>
                 </div>
             </div>

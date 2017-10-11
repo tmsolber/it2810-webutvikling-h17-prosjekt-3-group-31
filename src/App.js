@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import ModalPage from './ModalPage.js';
-import {Segment, Checkbox, Grid, Icon, Button} from 'semantic-ui-react'
+import {Segment, Checkbox, Grid, Icon} from 'semantic-ui-react'
 import './App.css';
 
 class App extends Component {
@@ -47,11 +47,25 @@ class App extends Component {
     };
 
     onUpdate = (val) => {
-        this.state.value.push(val);
+        this.state.value.push({
+            text: val,
+            key: Date.now()
+        });
         this.setState({
             value: this.state.value
         });
+        console.log(this.state.value)
     };
+
+    // handleDelete = (item) => {
+    //     var todos = this.state.value.filter(function(candidate){
+    //         return (candidate !== item);
+    //     });
+    //
+    //     this.setState({
+    //         value: todos
+    //     });
+    // };
 
     render() {
         const {time} = this.state;
@@ -61,16 +75,17 @@ class App extends Component {
         };
 
         const listItems = this.state.value.map((v) =>
-            <Segment className={'TodoItem'}>
-                <Grid>
-                    <Grid.Column>
+            <Segment className={'TodoItem'} key={v.key}>
+                <Grid columns={'equal'}>
+                    <Grid.Column width={1}>
                         <Checkbox className={'checkbox'}/>
                     </Grid.Column>
                     <Grid.Column stretched>
-                        <li>{v}</li>
+                        {v.text}
                     </Grid.Column>
-                    <Grid.Column>
-                        <Icon name='remove' color={'red'} size={'large'}/>
+                    <Grid.Column width={2}>
+                        <Icon name='remove' className={'remove'} color={'red'} size={'large'} onMouseOver={this.handleHover}
+                              onMouseLeave={this.handleLeave} style={imgStyle}/>
                     </Grid.Column>
                 </Grid>
             </Segment>
@@ -78,11 +93,11 @@ class App extends Component {
 
         return (
             <div>
-                <img src={require('./pluss.png')} alt="ocean" className={'plus'} onClick={this.handleModal} onMouseOver={this.handleHover}
-                     onMouseLeave={this.handleLeave} style={imgStyle}/>
-                <Grid className="App" divided>
-                    <Grid.Column width={5} textAlign={'centered'} verticalAlign={'middle'}>
-                        <Grid.Row centered>
+                <img src={require('./pluss.png')} alt="ocean" className={'plus'} onClick={this.handleModal}
+                     onMouseOver={this.handleHover} onMouseLeave={this.handleLeave} style={imgStyle}/>
+                <Grid className="App">
+                    <Grid.Column width={5} textAlign='centered'>
+                        <Grid.Row>
                             <div className="clock" >
                                 <h2>
                                     {/* print the string prettily */}
