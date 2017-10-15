@@ -58,8 +58,8 @@
 
 
 .form .todo-input::-webkit-input-placeholder {
-     color: black;
-     opacity: 0.3;
+    color: black;
+    opacity: 0.3;
 }
 
 button.close {
