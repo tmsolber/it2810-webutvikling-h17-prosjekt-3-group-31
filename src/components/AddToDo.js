@@ -11,7 +11,6 @@ class AddToDo extends Component{
                     trigger={<img src={plus} alt="add-to-do" className="plus" onClick={this.props.show}/>}
                     content={'Click to add todo'}
                 />
-
             </div>
         );
     }

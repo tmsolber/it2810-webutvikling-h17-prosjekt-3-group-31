@@ -5,7 +5,7 @@ import AddToDo from "./AddToDo";
 import {Segment, Checkbox, Grid, Icon} from 'semantic-ui-react'
 import Documentation from "./DocumentationBtn";
 
-class MainPage extends Component {
+class TodoPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -111,4 +111,4 @@ class MainPage extends Component {
     }
 }
 
-export default MainPage;
+export default TodoPage;
