@@ -4,6 +4,7 @@ import AddToDo from "./AddToDo";
 import '../css/ToDoPage.css';
 import {Segment, Checkbox, Grid, Icon} from 'semantic-ui-react'
 import BackgroundImage from "../containers/BackgroundImage";
+import update from 'immutability-helper';
 
 class ToDoPage extends Component {
     constructor(props) {
@@ -28,7 +29,8 @@ class ToDoPage extends Component {
     handleInputFromToDo(val){
         this.state.value.push({
             text: val,
-            key: Date.now()
+            key: Date.now(),
+            cName: 'todoTextFalse'
         });
         this.setState({
             value: this.state.value
@@ -51,27 +53,33 @@ class ToDoPage extends Component {
         localStorage.setItem('notes', JSON.stringify(this.state.value));
     }
 
-    handleCheck(){
-        if(this.state.check === false){
-            this.setState({
-                check: true
-            });
-        }else{
-            this.setState({
-                check: false
-            });
-        }
+    handleCheck(key){
+        const value = this.state.value;
+        const index = value.findIndex(function(c){
+            return c.key === key;
+        });
+
+        const updatedClass = (value[index].cName ==='todoTextFalse')
+            ? update(value[index], {cName: {$set: 'todoTextTrue'}})
+            : update(value[index], {cName: {$set: 'todoTextFalse'}});
+
+        const newValue = update(value, {
+            $splice: [[index, 1, updatedClass]]
+        });
+
+        this.setState({
+            value: newValue
+        });
     }
 
     render() {
-        const className = this.state.check ? "todoTextTrue" : "todoTextFalse";
         const listItems = this.state.value.map((v) =>
             <Segment className="TodoItem" key={v.key}>
                 <Grid columns={"equal"}>
                     <Grid.Column width={1}>
-                        <Checkbox className="checkbox" onClick={(e)=>this.handleCheck()}/>
+                        <Checkbox className='' onClick={(e)=>this.handleCheck(v.key)}/>
                     </Grid.Column>
-                    <Grid.Column width={13} stretched className={className} name={"todoText"} >
+                    <Grid.Column width={13} stretched className={v.cName} >
                         {v.text}
                     </Grid.Column>
                     <Grid.Column width={2}>
