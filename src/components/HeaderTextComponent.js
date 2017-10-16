@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../CSS/HeaderTextComponent.css';
 
 class HeaderTextComponent extends Component {
     render() {

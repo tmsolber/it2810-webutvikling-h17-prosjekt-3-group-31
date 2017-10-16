@@ -11,3 +11,13 @@
     text-decoration: line-through;
     text-decoration-color: dimgrey;
 }
+
+.header{
+    font-family: sans-serif;
+    color: white;
+    font-size: 3.5vw;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+}

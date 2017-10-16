@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../CSS/ClockComponent.css'
-import HeaderTextComponent from "../components/HeaderTextComponent";
 
 
 class ClockComponent extends Component {
@@ -24,8 +23,10 @@ class ClockComponent extends Component {
             <div className="clock">
                 <h2>
                     {time.toLocaleTimeString()}
-                    <HeaderTextComponent text={"ToDo"}/>
                 </h2>
+                <h1>
+                    Welcome to your own Personal Manager
+                </h1>
             </div>
         );
     }
