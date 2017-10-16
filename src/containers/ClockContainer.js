@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
-import '../CSS/ClockContainer.css'
+import '../css/ClockContainer.css'
 
 
 class ClockContainer extends Component {
     state = {
-      time: new Date()
+        time: new Date()
     };
 
     componentDidMount() {
         this.update = setInterval(() => {
-            this.setState({ time: new Date() });
+            this.setState({
+                time: new Date()
+            });
         }, 1000);
     }
 
@@ -20,13 +22,17 @@ class ClockContainer extends Component {
     render() {
         const {time} = this.state;
         return (
-            <div className="clock">
-                <h1>
-                    Welcome to your own Personal Manager
-                </h1>
-                <h2>
-                    {time.toLocaleTimeString()}
-                </h2>
+            <div>
+                <div className="welcome-text">
+                    <h1>
+                        Welcome to your own Personal Manager
+                    </h1>
+                </div>
+                <div className="clock">
+                    <h2>
+                        {time.toLocaleTimeString()}
+                    </h2>
+                </div>
             </div>
         );
     }
