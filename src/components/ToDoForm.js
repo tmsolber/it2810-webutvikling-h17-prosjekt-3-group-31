@@ -17,7 +17,6 @@ class ToDoForm extends Component {
             this.props.onUpdate(this.refs.input.value);
             this.refs.input.value = "";
         }
-        localStorage.setItem('notes', JSON.stringify(this.props.values));
     }
 
     stopPropagation(e){

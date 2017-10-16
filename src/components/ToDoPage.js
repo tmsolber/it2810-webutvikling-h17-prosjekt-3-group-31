@@ -35,7 +35,6 @@ class ToDoPage extends Component {
         this.setState({
             value: this.state.value
         });
-        console.log(this.state.value)
     }
 
     // Delete the todoitem given by the key, and save the new value of the list.
