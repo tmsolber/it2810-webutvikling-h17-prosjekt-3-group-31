@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import ToDoForm from './ToDoForm';
 import AddToDo from "./AddToDo";
-import '../CSS/ToDoPage.css';
+import '../css/ToDoPage.css';
 import {Segment, Checkbox, Grid, Icon} from 'semantic-ui-react'
-import DocumentationBtn from "./DocumentationBtn";
 import BackgroundImage from "../containers/BackgroundImage";
-import HeaderTextComponent from "./HeaderTextComponent";
 
 class ToDoPage extends Component {
     constructor(props) {
@@ -73,13 +71,11 @@ class ToDoPage extends Component {
                     <Grid.Column width={1}>
                         <Checkbox className="checkbox" onClick={(e)=>this.handleCheck()}/>
                     </Grid.Column>
-                    <Grid.Column stretched className={className} name={"todoText"} >
+                    <Grid.Column width={13} stretched className={className} name={"todoText"} >
                         {v.text}
                     </Grid.Column>
                     <Grid.Column width={2}>
-                        {/* Cannot customize semantic ui, so have to put style in here*/}
-                        <Icon name="remove" color={"red"} size={"large"} style={{cursor: 'pointer'}}
-                              onClick={(e) => this.handleDelete(v.key)}/>
+                        <Icon id="remove-icon" name="remove" onClick={(e) => this.handleDelete(v.key)}/>
                     </Grid.Column>
                 </Grid>
             </Segment>
@@ -90,17 +86,15 @@ class ToDoPage extends Component {
                 <BackgroundImage/>
                 <div className="btn-container">
                     <AddToDo show={this.handleModal}/>
-                    <DocumentationBtn/>
                 </div>
                 <Grid className="App">
                     <Grid.Column width={5} textAlign="centered">
                         <Grid.Row>
-                            <HeaderTextComponent text={"ToDo"}/>
-                        </Grid.Row>
-                        <Grid.Row>
-                            <Segment.Group>
-                                {listItems}
-                            </Segment.Group>
+                            <div className="todo-segment">
+                                <Segment.Group>
+                                    {listItems}
+                                </Segment.Group>
+                            </div>
                             <ToDoForm show={this.state.showModal} onClose={this.handleModal}
                                       onUpdate={this.handleInputFromToDo} values={this.state.value}/>
                         </Grid.Row>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import plus from '../images/plus.png';
-import '../CSS/Buttons.css';
+import '../css/Buttons.css';
 import {Popup} from 'semantic-ui-react'
 
 class AddToDo extends Component{
