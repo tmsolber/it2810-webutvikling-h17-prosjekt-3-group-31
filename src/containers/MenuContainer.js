@@ -12,15 +12,15 @@ class MenuComponent extends Component{
 
         return (
             <div>
-                <Menu pointing secondary>
+                <Menu pointing secondary style={{borderColor: 'white'}}>
                     <Link to={'/'}>
-                        <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
+                        <Menu.Item style={{color: 'white'}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
                     </Link>
                     <Link to={'/todo'}>
-                        <Menu.Item name='ToDo' active={activeItem === 'ToDo'} onClick={this.handleItemClick} />
+                        <Menu.Item style={{color: 'white'}} name='ToDo' active={activeItem === 'ToDo'} onClick={this.handleItemClick} />
                     </Link>
                     <Link to={'/calender'}>
-                        <Menu.Item name='Calendar' active={activeItem === 'Calendar'} onClick={this.handleItemClick} />
+                        <Menu.Item style={{color: 'white'}} name='Calendar' active={activeItem === 'Calendar'} onClick={this.handleItemClick} />
                     </Link>
                 </Menu>
             </div>

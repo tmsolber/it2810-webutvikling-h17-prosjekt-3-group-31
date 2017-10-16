@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import '../CSS/ClockComponent.css'
+import '../CSS/ClockContainer.css'
 
 
-class ClockComponent extends Component {
+class ClockContainer extends Component {
     state = {
       time: new Date()
     };
@@ -21,15 +21,15 @@ class ClockComponent extends Component {
         const {time} = this.state;
         return (
             <div className="clock">
-                <h2>
-                    {time.toLocaleTimeString()}
-                </h2>
                 <h1>
                     Welcome to your own Personal Manager
                 </h1>
+                <h2>
+                    {time.toLocaleTimeString()}
+                </h2>
             </div>
         );
     }
 }
 
-export default ClockComponent;
+export default ClockContainer;

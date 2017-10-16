@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import ClockComponent from '../containers/ClockComponent';
 import ToDoForm from './ToDoForm';
 import AddToDo from "./AddToDo";
+import '../CSS/ToDoPage.css';
 import {Segment, Checkbox, Grid, Icon} from 'semantic-ui-react'
-import Documentation from "./DocumentationBtn";
+import DocumentationBtn from "./DocumentationBtn";
+import BackgroundImage from "../containers/BackgroundImage";
+import HeaderTextComponent from "./HeaderTextComponent";
 
-class TodoPage extends Component {
+class ToDoPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -58,15 +60,8 @@ class TodoPage extends Component {
         }
     }
 
-    componentDidMount() {
-        document.body.style.backgroundImage = "url(https://static.pexels.com/photos/132037/pexels-photo-132037.jpeg)";
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundRepeat = "no-repeat";
-    }
-
     render() {
         const className = this.state.check ? "todoTextTrue" : "todoTextFalse";
-
         const listItems = this.state.value.map((v) =>
             <Segment className="TodoItem" key={v.key}>
                 <Grid columns={"equal"}>
@@ -87,14 +82,15 @@ class TodoPage extends Component {
 
         return (
             <div>
+                <BackgroundImage/>
                 <div className="btn-container">
                     <AddToDo show={this.handleModal}/>
-                    <Documentation/>
+                    <DocumentationBtn/>
                 </div>
                 <Grid className="App">
                     <Grid.Column width={5} textAlign="centered">
                         <Grid.Row>
-                            <ClockComponent/>
+                            <HeaderTextComponent text={"ToDo"}/>
                         </Grid.Row>
                         <Grid.Row>
                             <Segment.Group>
@@ -111,4 +107,4 @@ class TodoPage extends Component {
     }
 }
 
-export default TodoPage;
+export default ToDoPage;
