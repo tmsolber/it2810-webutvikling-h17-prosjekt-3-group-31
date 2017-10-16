@@ -3,9 +3,9 @@ import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class MenuComponent extends Component{
-    state = { activeItem: 'Home' };
+    state = { activeItem: localStorage.getItem('activeTab') };
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name }) & localStorage.setItem('activeTab', name);
 
     render() {
         const { activeItem } = this.state;
