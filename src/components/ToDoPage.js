@@ -38,6 +38,7 @@ class ToDoPage extends Component {
         console.log(this.state.value)
     }
 
+    // Delete the todoitem given by the key, and save the new value of the list.
     handleDelete(key){
         const todos = this.state.value.filter(function(val){
             return (val.key !== key);
@@ -46,6 +47,10 @@ class ToDoPage extends Component {
         this.setState({
             value: todos
         });
+    }
+
+    componentDidUpdate(){
+        localStorage.setItem('notes', JSON.stringify(this.state.value));
     }
 
     handleCheck(){

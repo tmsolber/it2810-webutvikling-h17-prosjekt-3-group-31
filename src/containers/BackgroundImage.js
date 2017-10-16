@@ -7,7 +7,7 @@ class BackgroundImage extends Component {
         document.body.style.backgroundRepeat = "no-repeat";
     }
     render() {
-        {/*https://static.pexels.com/photos/132037/pexels-photo-132037.jpeg*/}
+        /*https://static.pexels.com/photos/132037/pexels-photo-132037.jpeg*/
         return null;
     }
 }
