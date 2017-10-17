@@ -12,7 +12,7 @@ class App extends Component {
         <div>
             <MenuComponent/>
             <Switch>
-                <Route exact path='/' component={HomePage}/>
+                <Route exact path='/home' component={HomePage}/>
                 <Route exact path='/todo' component={ToDoPage}/>
                 <Route exact path='/calendar' component={CalendarComponent}/>
                 <Route exact path='/documentation' component={DocumentationPage}/>
