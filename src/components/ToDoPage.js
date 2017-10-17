@@ -11,8 +11,7 @@ class ToDoPage extends Component {
         super(props);
         this.state = {
             showModal: false,
-            value: (localStorage.getItem('notes') && JSON.parse(localStorage.getItem('notes')))||[],
-            check: false
+            value: (localStorage.getItem('notes') && JSON.parse(localStorage.getItem('notes')))||[]
         };
         this.handleModal = this.handleModal.bind(this);
         this.handleInputFromToDo = this.handleInputFromToDo.bind(this);
