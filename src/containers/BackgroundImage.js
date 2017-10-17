@@ -5,6 +5,7 @@ class BackgroundImage extends Component {
         document.body.style.backgroundImage = "url(https://wallpaperscraft.com/image/switzerland_alps_mountains_night_beautiful_landscape_99817_1920x1080.jpg)";
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
     }
     render() {
         return null;
