@@ -13,18 +13,21 @@ class ToDoPage extends Component {
             showModal: false,
             value: (localStorage.getItem('notes') && JSON.parse(localStorage.getItem('notes')))||[]
         };
+        // Binding the event handlers
         this.handleModal = this.handleModal.bind(this);
         this.handleInputFromToDo = this.handleInputFromToDo.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
 
+    // Toggles between the showModal states
     handleModal() {
         this.setState(prevState => ({
             showModal: !prevState.showModal
         }));
     }
 
+    // Takes the input and saves it in an array
     handleInputFromToDo(val){
         this.state.value.push({
             text: val,
@@ -48,10 +51,13 @@ class ToDoPage extends Component {
         });
     }
 
+    // Saves the changes that happens whenever an action updates the component
     componentDidUpdate(){
         localStorage.setItem('notes', JSON.stringify(this.state.value));
     }
 
+    // Checkbox event handler that finds the element where checkbox was clicked
+    // then toggles between the className values.
     handleCheck(key){
         const value = this.state.value;
         const index = value.findIndex(function(c){
@@ -73,7 +79,7 @@ class ToDoPage extends Component {
 
     render() {
 
-
+        // Takes the value array and maps it into  Semantic UI Segment list.
         const listItems = this.state.value.map((v) =>
             <Segment className="TodoItem" key={v.key}>
                 <Grid columns={"equal"}>

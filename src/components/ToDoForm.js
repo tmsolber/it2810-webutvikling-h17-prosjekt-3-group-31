@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import '../css/ToDoForm.css';
 
+// Assigns the enter key to a const.
 const ENTER_KEY = 13;
 
 class ToDoForm extends Component {
     constructor() {
         super();
+        //binds the event handlers
         this.handleSubmit = this.handleSubmit.bind(this);
         this.stopPropagation = this.stopPropagation.bind(this);
     }

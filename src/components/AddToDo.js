@@ -7,6 +7,7 @@ class AddToDo extends Component{
     render() {
         return (
             <div className="add-btn">
+                {/* Semantic UI popup on the plus button */}
                 <Popup
                     trigger={<img src={plus} alt="add-to-do" className="plus" onClick={this.props.show}/>}
                     content={'Click to add todo'}
