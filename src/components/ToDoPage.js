@@ -30,7 +30,8 @@ class ToDoPage extends Component {
         this.state.value.push({
             text: val,
             key: Date.now(),
-            cName: 'todoTextFalse'
+            cName: 'todoTextFalse',
+            checked: null
         });
         this.setState({
             value: this.state.value
@@ -72,11 +73,13 @@ class ToDoPage extends Component {
     }
 
     render() {
+
+
         const listItems = this.state.value.map((v) =>
             <Segment className="TodoItem" key={v.key}>
                 <Grid columns={"equal"}>
                     <Grid.Column width={1}>
-                        <Checkbox className='' onClick={(e)=>this.handleCheck(v.key)}/>
+                        <Checkbox checked={(v.cName==='todoTextTrue')} onClick={(e)=>this.handleCheck(v.key)}/>
                     </Grid.Column>
                     <Grid.Column width={13} stretched className={v.cName} >
                         {v.text}
