@@ -4,6 +4,9 @@ import '../css/ToDoForm.css';
 // Assigns the enter key to a const.
 const ENTER_KEY = 13;
 
+//When the popup appears, this makes the user able to write down todos
+//and click enter to add it to the ToDoPage
+
 class ToDoForm extends Component {
     constructor() {
         super();
@@ -11,7 +14,7 @@ class ToDoForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.stopPropagation = this.stopPropagation.bind(this);
     }
-
+    //Handles the     
     handleSubmit(e){
         if (e.which === ENTER_KEY) {
             e.preventDefault();
@@ -19,7 +22,7 @@ class ToDoForm extends Component {
             this.refs.input.value = "";
         }
     }
-
+    //Makes sure the current event from bubbling phases
     stopPropagation(e){
         e.stopPropagation();
     }

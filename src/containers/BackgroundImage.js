@@ -1,5 +1,7 @@
 import {Component} from 'react';
 
+//Shows the backgound image
+
 class BackgroundImage extends Component {
     // Since react doesn't have direct access to the <body /> we had to access it like this.
     componentDidMount() {

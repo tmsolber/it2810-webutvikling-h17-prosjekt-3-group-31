@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import plus from '../images/plus.png';
 import '../css/Buttons.css';
 import {Popup} from 'semantic-ui-react'
-
+/* The add todo-button. Shows "Click to add todo" when hoovered over*/
 class AddToDo extends Component{
     render() {
         return (

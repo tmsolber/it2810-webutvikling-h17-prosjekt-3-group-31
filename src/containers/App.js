@@ -4,6 +4,8 @@ import ToDoPage from "../components/ToDoPage";
 import MenuComponent from "./MenuContainer";
 import HomePage from "./HomePage";
 
+//Routes to the right page
+
 class App extends Component {
   render() {
     return (

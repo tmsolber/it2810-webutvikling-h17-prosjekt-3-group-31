@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/ClockContainer.css'
 
-
+//This is the clock on the home page 
 class ClockContainer extends Component {
     state = {
         time: new Date()
