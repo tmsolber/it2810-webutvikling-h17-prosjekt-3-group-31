@@ -16,12 +16,8 @@ class MenuComponent extends Component{
             <div>
                 {/* Semantic UI navbar */}
                 <Menu id="navbar" pointing secondary>
-                    <Menu.Item as={Link} to={'/home'} style={{color: 'white'}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
+                    <Menu.Item as={Link} to={''} style={{color: 'white'}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
                     <Menu.Item as={Link} to={'/todo'} style={{color: 'white'}} name='ToDo' active={activeItem === 'ToDo'} onClick={this.handleItemClick} />
-                    <Menu.Menu position='right'>
-                        <Menu.Item as={Link} to={'/documentation'} style={{color: 'white'}} name='Documentation'
-                                   active={activeItem === 'Documentation'} onClick={this.handleItemClick} />
-                    </Menu.Menu>
                 </Menu>
             </div>
         )
