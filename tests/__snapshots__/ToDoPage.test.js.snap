@@ -1,0 +1,446 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test that page is rendered without values 1`] = `
+<ToDoPage>
+  <div>
+    <BackgroundImage />
+    <div
+      className="btn-container"
+    >
+      <AddToDo
+        show={[Function]}
+      >
+        <div
+          className="add-btn"
+        >
+          <Popup
+            content="Click to add todo"
+            on="hover"
+            position="top left"
+            trigger={
+              <img
+                alt="add-to-do"
+                className="plus"
+                onClick={[Function]}
+                src={
+                  Object {
+                    "process": [Function],
+                  }
+                }
+              />
+            }
+          >
+            <Portal
+              closeOnDocumentClick={true}
+              closeOnEscape={true}
+              closeOnTriggerMouseLeave={true}
+              eventPool="default"
+              mouseEnterDelay={50}
+              mouseLeaveDelay={70}
+              onClose={[Function]}
+              onMount={[Function]}
+              onOpen={[Function]}
+              onUnmount={[Function]}
+              openOnTriggerClick={true}
+              openOnTriggerMouseEnter={true}
+              trigger={
+                <img
+                  alt="add-to-do"
+                  className="plus"
+                  onClick={[Function]}
+                  src={
+                    Object {
+                      "process": [Function],
+                    }
+                  }
+                />
+              }
+            >
+              <img
+                alt="add-to-do"
+                className="plus"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                src={
+                  Object {
+                    "process": [Function],
+                  }
+                }
+              />
+            </Portal>
+          </Popup>
+        </div>
+      </AddToDo>
+    </div>
+    <Grid
+      className="App"
+    >
+      <div
+        className="ui grid App"
+      >
+        <GridColumn
+          textAlign="centered"
+          width={5}
+        >
+          <div
+            className="centered aligned five wide column"
+          >
+            <GridRow>
+              <div
+                className="row"
+              >
+                <div
+                  className="todo-segment"
+                >
+                  <SegmentGroup>
+                    <div
+                      className="ui segments"
+                    />
+                  </SegmentGroup>
+                </div>
+                <ToDoForm
+                  onClose={[Function]}
+                  onUpdate={[Function]}
+                  show={false}
+                  values={Array []}
+                />
+              </div>
+            </GridRow>
+          </div>
+        </GridColumn>
+      </div>
+    </Grid>
+  </div>
+</ToDoPage>
+`;
+
+exports[`test that page returns content without props 1`] = `
+<div>
+  <BackgroundImage />
+  <div
+    className="btn-container"
+  >
+    <AddToDo
+      show={[Function]}
+    />
+  </div>
+  <Grid
+    className="App"
+  >
+    <GridColumn
+      textAlign="centered"
+      width={5}
+    >
+      <GridRow>
+        <div
+          className="todo-segment"
+        >
+          <SegmentGroup />
+        </div>
+        <ToDoForm
+          onClose={[Function]}
+          onUpdate={[Function]}
+          show={false}
+          values={Array []}
+        />
+      </GridRow>
+    </GridColumn>
+  </Grid>
+</div>
+`;
+
+exports[`test that values are rendered 1`] = `
+<ToDoPage>
+  <div>
+    <BackgroundImage />
+    <div
+      className="btn-container"
+    >
+      <AddToDo
+        show={[Function]}
+      >
+        <div
+          className="add-btn"
+        >
+          <Popup
+            content="Click to add todo"
+            on="hover"
+            position="top left"
+            trigger={
+              <img
+                alt="add-to-do"
+                className="plus"
+                onClick={[Function]}
+                src={
+                  Object {
+                    "process": [Function],
+                  }
+                }
+              />
+            }
+          >
+            <Portal
+              closeOnDocumentClick={true}
+              closeOnEscape={true}
+              closeOnTriggerMouseLeave={true}
+              eventPool="default"
+              mouseEnterDelay={50}
+              mouseLeaveDelay={70}
+              onClose={[Function]}
+              onMount={[Function]}
+              onOpen={[Function]}
+              onUnmount={[Function]}
+              openOnTriggerClick={true}
+              openOnTriggerMouseEnter={true}
+              trigger={
+                <img
+                  alt="add-to-do"
+                  className="plus"
+                  onClick={[Function]}
+                  src={
+                    Object {
+                      "process": [Function],
+                    }
+                  }
+                />
+              }
+            >
+              <img
+                alt="add-to-do"
+                className="plus"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                src={
+                  Object {
+                    "process": [Function],
+                  }
+                }
+              />
+            </Portal>
+          </Popup>
+        </div>
+      </AddToDo>
+    </div>
+    <Grid
+      className="App"
+    >
+      <div
+        className="ui grid App"
+      >
+        <GridColumn
+          textAlign="centered"
+          width={5}
+        >
+          <div
+            className="centered aligned five wide column"
+          >
+            <GridRow>
+              <div
+                className="row"
+              >
+                <div
+                  className="todo-segment"
+                >
+                  <SegmentGroup>
+                    <div
+                      className="ui segments"
+                    >
+                      <Segment
+                        className="TodoItem"
+                        key="1508355111614"
+                      >
+                        <div
+                          className="ui segment TodoItem"
+                        >
+                          <Grid
+                            columns="equal"
+                          >
+                            <div
+                              className="ui equal width grid"
+                            >
+                              <GridColumn
+                                width={1}
+                              >
+                                <div
+                                  className="one wide column"
+                                >
+                                  <Checkbox
+                                    checked={false}
+                                    onClick={[Function]}
+                                    type="checkbox"
+                                  >
+                                    <div
+                                      className="ui fitted checkbox"
+                                      onChange={[Function]}
+                                      onClick={[Function]}
+                                      onMouseDown={[Function]}
+                                    >
+                                      <input
+                                        checked={false}
+                                        className="hidden"
+                                        name={undefined}
+                                        readOnly={true}
+                                        tabIndex={0}
+                                        type="checkbox"
+                                        value={undefined}
+                                      />
+                                      <label />
+                                    </div>
+                                  </Checkbox>
+                                </div>
+                              </GridColumn>
+                              <GridColumn
+                                className="todoTextFalse"
+                                stretched={true}
+                                width={13}
+                              >
+                                <div
+                                  className="stretched thirteen wide column todoTextFalse"
+                                >
+                                  asd
+                                </div>
+                              </GridColumn>
+                              <GridColumn
+                                width={2}
+                              >
+                                <div
+                                  className="two wide column"
+                                >
+                                  <Icon
+                                    as="i"
+                                    id="remove-icon"
+                                    name="remove"
+                                    onClick={[Function]}
+                                  >
+                                    <i
+                                      aria-hidden="true"
+                                      className="remove icon"
+                                      id="remove-icon"
+                                      onClick={[Function]}
+                                    />
+                                  </Icon>
+                                </div>
+                              </GridColumn>
+                            </div>
+                          </Grid>
+                        </div>
+                      </Segment>
+                      <Segment
+                        className="TodoItem"
+                        key="1508355113035"
+                      >
+                        <div
+                          className="ui segment TodoItem"
+                        >
+                          <Grid
+                            columns="equal"
+                          >
+                            <div
+                              className="ui equal width grid"
+                            >
+                              <GridColumn
+                                width={1}
+                              >
+                                <div
+                                  className="one wide column"
+                                >
+                                  <Checkbox
+                                    checked={false}
+                                    onClick={[Function]}
+                                    type="checkbox"
+                                  >
+                                    <div
+                                      className="ui fitted checkbox"
+                                      onChange={[Function]}
+                                      onClick={[Function]}
+                                      onMouseDown={[Function]}
+                                    >
+                                      <input
+                                        checked={false}
+                                        className="hidden"
+                                        name={undefined}
+                                        readOnly={true}
+                                        tabIndex={0}
+                                        type="checkbox"
+                                        value={undefined}
+                                      />
+                                      <label />
+                                    </div>
+                                  </Checkbox>
+                                </div>
+                              </GridColumn>
+                              <GridColumn
+                                className="todoTextFalse"
+                                stretched={true}
+                                width={13}
+                              >
+                                <div
+                                  className="stretched thirteen wide column todoTextFalse"
+                                >
+                                  dsa
+                                </div>
+                              </GridColumn>
+                              <GridColumn
+                                width={2}
+                              >
+                                <div
+                                  className="two wide column"
+                                >
+                                  <Icon
+                                    as="i"
+                                    id="remove-icon"
+                                    name="remove"
+                                    onClick={[Function]}
+                                  >
+                                    <i
+                                      aria-hidden="true"
+                                      className="remove icon"
+                                      id="remove-icon"
+                                      onClick={[Function]}
+                                    />
+                                  </Icon>
+                                </div>
+                              </GridColumn>
+                            </div>
+                          </Grid>
+                        </div>
+                      </Segment>
+                    </div>
+                  </SegmentGroup>
+                </div>
+                <ToDoForm
+                  onClose={[Function]}
+                  onUpdate={[Function]}
+                  show={false}
+                  values={
+                    Array [
+                      Object {
+                        "cName": "todoTextFalse",
+                        "checked": null,
+                        "key": 1508355111614,
+                        "text": "asd",
+                      },
+                      Object {
+                        "cName": "todoTextFalse",
+                        "checked": null,
+                        "key": 1508355113035,
+                        "text": "dsa",
+                      },
+                    ]
+                  }
+                />
+              </div>
+            </GridRow>
+          </div>
+        </GridColumn>
+      </div>
+    </Grid>
+  </div>
+</ToDoPage>
+`;

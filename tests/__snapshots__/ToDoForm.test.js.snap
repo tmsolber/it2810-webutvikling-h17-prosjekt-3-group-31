@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test that modal is shown 1`] = `
+<div
+  className="backdrop"
+>
+  <div
+    className="modal"
+    onClick={[Function]}
+  >
+    <button
+      className="close"
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ×
+      </span>
+    </button>
+    <h1
+      className="focus-text"
+    >
+      What is your main focus today?
+    </h1>
+    <div
+      className="form"
+    >
+      <input
+        className="todo-input"
+        maxLength={50}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="ToDo's..."
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test that onUpdate that sets state gets called 1`] = `
+<ToDoForm
+  onUpdate={[Function]}
+  show={true}
+>
+  <div
+    className="backdrop"
+    onClick={undefined}
+  >
+    <div
+      className="modal"
+      onClick={[Function]}
+    >
+      <button
+        className="close"
+        type="button"
+      >
+        <span
+          aria-hidden="true"
+          onClick={undefined}
+        >
+          ×
+        </span>
+      </button>
+      <h1
+        className="focus-text"
+      >
+        What is your main focus today?
+      </h1>
+      <div
+        className="form"
+      >
+        <input
+          className="todo-input"
+          maxLength={50}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="ToDo's..."
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</ToDoForm>
+`;
+
+exports[`to be empty when not shown 1`] = `""`;
