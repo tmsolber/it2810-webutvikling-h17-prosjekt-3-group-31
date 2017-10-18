@@ -1,6 +1,6 @@
 .modal {
     animation: fade .9s ease-out 0.1s both;
-    background-color: rgba(199, 230, 236, 0.6);
+    background-color: rgba(0, 0, 0, 0.49);
     max-width: 500px;
     max-height: 600px;
     margin: 0 auto;
@@ -30,7 +30,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     padding: 50px;
 }
 
@@ -58,8 +58,8 @@
 
 
 .form .todo-input::-webkit-input-placeholder {
-     color: black;
-     opacity: 0.3;
+    color: black;
+    opacity: 0.3;
 }
 
 button.close {
@@ -75,9 +75,19 @@ button.close {
     font-size: 30px;
     font-weight: bold;
     line-height: 1;
-    color: #000;
+    color: white;
     text-shadow: 0 1px 0 #fff;
     filter: alpha(opacity=20);
     opacity: .2;
     margin-right: 5px;
+}
+
+.focus-text{
+    font-family: sans-serif;
+    color: white;
+    font-size: 3vw;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
 }
